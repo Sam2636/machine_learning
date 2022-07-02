@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns 
 
-df=pd.read_csv("middle_tn_schools.csv",delimiter=',')
+df=pd.read_csv("./dataset/middle_tn_schools.csv",delimiter=',')
 
 
 #data exploring---------------------->using heatmap sns.heatmap(data,square=True,cmap="bwr")

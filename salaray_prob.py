@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-df=pd.read_csv("SalaryGender.csv",delimiter=',')
+df=pd.read_csv("./dataset/SalaryGender.csv",delimiter=',')
 
 data=df.corr()
 sns.heatmap(data,square=True,cmap="bwr")
