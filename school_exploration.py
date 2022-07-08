@@ -28,4 +28,22 @@ school_data=data2.corr()
 sns.heatmap(school_data,square=True,annot=True,cmap="bwr")
 plt.yticks(rotation=0)
 plt.xticks(rotation=90)
-plt.show()
+#plt.show()
+
+
+#------------->missing value
+print(df.isna().sum())  #to check the missing values #isna() return boolen values
+
+
+#filling the missing values
+from sklearn.impute import SimpleImputer
+#how to treat missing values
+mean_imputer=SimpleImputer(missing_values=np.nan,strategy='mean')
+
+print(df['state_percentile_15'].isna().sum())
+
+mean_imputer=mean_imputer.fit(df['state_percentile_15'].values.reshape(-1,1))
+df3=mean_imputer.transform(df['state_percentile_15'].values.reshape(-1,1))
+print(df3)
+
+#needs to treat a outlier 
