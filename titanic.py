@@ -104,4 +104,4 @@ def remove_outliers(age):
 #plt.show()
 
 sns.boxplot(x=df2['Age'])
-#plt.show()
+#plt.show() awega
