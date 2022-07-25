@@ -128,11 +128,8 @@ print('below',sum(below_lowerbound))
 #     df2[col] =remove_outliers(col)
 
 
-# strategy2
+# strategy2 ##------------------------------------------>outlier decision check with mean and std------------------------------------------------------
 #displot
-
-
-
 #step1:
 age_min=df3['Age'].min()
 age_max=df3['Age'].max()
@@ -146,4 +143,18 @@ plt.axvline(x=age_mean,ymin=age_min,ymax=age_max,color='red',lw=3,label='mean ag
 plt.axvline(x=age_mean+2*(age_std),ymin=age_min,ymax=age_max,color='m',lw=3,label='mean age + 2*std')
 plt.axvline(x=age_mean+3*(age_std),ymin=age_min,ymax=age_max,color='b',lw=3,label='mean age + 3*std')
 plt.legend()
+
+
+upper_bound=age_mean+2*(age_std)
+lower_bound=age_mean-2*(age_std)
+def remove_outliers(age):
+    if age> upper_bound:
+        return upper_bound
+    elif age< lower_bound:
+        return lower_bound
+    else:
+        return age
+
+data=df3['Age'].apply(remove_outliers)
+sns.displot(data,kde=True)
 plt.show()
